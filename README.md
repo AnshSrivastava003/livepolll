@@ -97,6 +97,10 @@ Deploy backend + frontend for public access
 
 Website Link: https://livepolll.vercel.app/
 
+🏗️ Vote State Sharing & Room Management
+
+I structured the app so that each room is managed in-memory on the backend. When a user creates a room, the server initializes a state object containing vote counts, active clients, and a countdown timer. Each client that connects is mapped with metadata (username, roomCode), so the server knows which room they belong to. When a user votes, the server updates the room’s state and broadcasts the new state via WebSockets to all connected clients in that room, ensuring real-time synchronization. The server also enforces one vote per user, closes voting automatically after 60 seconds, and removes clients gracefully when they leave.
+
 
 🙋 About Me
 
